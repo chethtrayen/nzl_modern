@@ -1,0 +1,27 @@
+name: Build ROM
+
+on:
+  push:
+    branches: [ followers ]
+  pull_request:
+
+jobs:
+  build_rom:
+    name: Build ROM
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install binutils-arm-none-eabi gcc-arm-none-eabi libpng-dev
+      - name: Build & install agbcc
+        run: |
+          cd ..
+          git clone --depth 1 https://github.com/pret/agbcc
+          cd agbcc
+          ./build.sh
+          ./install.sh ../pokeemerald
+      - name: Build ROM
+        run: |
+          make modern
