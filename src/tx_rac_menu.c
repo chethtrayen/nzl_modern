@@ -1519,7 +1519,7 @@ void CB2_InitTxRandomizerChallengesMenu(void)
 
         sOptions = AllocZeroed(sizeof(*sOptions));
         //MENU MODE
-        sOptions->sel_mode[MENUITEM_MODE_CLASSIC_MODERN]         = FALSE;
+        sOptions->sel_mode[MENUITEM_MODE_CLASSIC_MODERN]         = TX_MODE_GAMEMODE; //tx_randomizer_and_challenges
         sOptions->sel_mode[MENUITEM_MODE_ALTERNATE_SPAWNS]       = gSaveBlock1Ptr->tx_Mode_Encounters;
         sOptions->sel_mode[MENUITEM_MODE_INFINITE_TMS]           = gSaveBlock1Ptr->tx_Mode_InfiniteTMs;
         sOptions->sel_mode[MENUITEM_MODE_SURVIVE_POISON]         = gSaveBlock1Ptr->tx_Mode_PoisonSurvive;
@@ -1544,7 +1544,7 @@ void CB2_InitTxRandomizerChallengesMenu(void)
         sOptions->sel_features[MENUITEM_FEATURES_SHINY_COLOR]            = gSaveBlock1Ptr->tx_Features_ShinyColors;
 
         //MENU RANDOMIZER
-        sOptions->sel_randomizer[MENUITEM_RANDOM_OFF_ON]                     = FALSE;
+        sOptions->sel_randomizer[MENUITEM_RANDOM_OFF_ON]                     = TX_RANDOM_ON; //tx_randomizer_and_challenges
         sOptions->sel_randomizer[MENUITEM_RANDOM_STARTER]                    = gSaveBlock1Ptr->tx_Random_Starter;
         sOptions->sel_randomizer[MENUITEM_RANDOM_WILD_PKMN]                  = gSaveBlock1Ptr->tx_Random_WildPokemon;
         sOptions->sel_randomizer[MENUITEM_RANDOM_TRAINER]                    = gSaveBlock1Ptr->tx_Random_Trainer;
@@ -1561,12 +1561,14 @@ void CB2_InitTxRandomizerChallengesMenu(void)
         sOptions->sel_randomizer[MENUITEM_RANDOM_CHAOS]                      = gSaveBlock1Ptr->tx_Random_Chaos;
 
         // MENU_NUZLOCKE
+        // 0 Off, 1 Mini, 2 Normal, 3 Hardcore - must match the switch in
+        // SaveData_TxRandomizerAndChallenges. //tx_randomizer_and_challenges
         if (gSaveBlock1Ptr->tx_Challenges_Nuzlocke && gSaveBlock1Ptr->tx_Challenges_NuzlockeHardcore)
-            sOptions->sel_nuzlocke[MENUITEM_NUZLOCKE_NUZLOCKE] = 2;
+            sOptions->sel_nuzlocke[MENUITEM_NUZLOCKE_NUZLOCKE] = 3;
         else if (gSaveBlock1Ptr->tx_Challenges_Nuzlocke)
-            sOptions->sel_nuzlocke[MENUITEM_NUZLOCKE_NUZLOCKE] = 1;
+            sOptions->sel_nuzlocke[MENUITEM_NUZLOCKE_NUZLOCKE] = 2;
         else if (gSaveBlock1Ptr->tx_Nuzlocke_EasyMode)
-            sOptions->sel_nuzlocke[MENUITEM_NUZLOCKE_NUZLOCKE] = 0;
+            sOptions->sel_nuzlocke[MENUITEM_NUZLOCKE_NUZLOCKE] = 1;
         else
             sOptions->sel_nuzlocke[MENUITEM_NUZLOCKE_NUZLOCKE] = 0;
         sOptions->sel_nuzlocke[MENUITEM_NUZLOCKE_SPECIES_CLAUSE]    = !gSaveBlock1Ptr->tx_Nuzlocke_SpeciesClause;

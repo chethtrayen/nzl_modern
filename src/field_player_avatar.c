@@ -359,7 +359,10 @@ void MovementType_Player(struct Sprite *sprite)
     UpdateObjectEventCurrentMovement(&gObjectEvents[sprite->data[0]], sprite, ObjectEventCB2_NoMovement2);
 }
 
-static u8 ObjectEventCB2_NoMovement2(struct ObjectEvent *, struct Sprite *)
+// Parameters are named only so this compiles as C17; both are unused. C23 (which
+// devkitARM's GCC 16 defaults to) permits omitting them in a definition, older GCC
+// does not.
+static u8 ObjectEventCB2_NoMovement2(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     return 0;
 }

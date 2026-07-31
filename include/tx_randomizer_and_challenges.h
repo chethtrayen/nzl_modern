@@ -3,10 +3,22 @@
 //tx_randomizer_and_challenges
 
 // default options set by the dev
-#define TX_RANDOM_STARTER               FALSE
-#define TX_RANDOM_WILD_POKEMON          FALSE
+
+// GAMEMODE preset selector on the MODE page: 0 = Classic, 1 = Modern, 2 = Custom.
+// Classic/Modern batch-set every tx_Mode_* option (and the FINITE_TMS / MINTS_ENABLED
+// flags) from DrawChoices_Mode_Classic_Modern_Selector; only Custom leaves them editable.
+// The Modern branch uses !TX_MODE_*, so the individual TX_MODE_* macros below must keep
+// their Classic values for this preset to work. //tx_randomizer_and_challenges
+#define TX_MODE_GAMEMODE                1
+
+// Master RANDOMIZER toggle. The individual TX_RANDOM_* options below are only written to
+// the save when this is on; with it off SaveData_TxRandomizerAndChallenges zeroes them all.
+#define TX_RANDOM_ON                    TRUE //tx_randomizer_and_challenges
+
+#define TX_RANDOM_STARTER               TRUE
+#define TX_RANDOM_WILD_POKEMON          TRUE
 #define TX_RANDOM_TRAINER               FALSE
-#define TX_RANDOM_STATIC                FALSE
+#define TX_RANDOM_STATIC                TRUE
 #define TX_RANDOM_SIMILAR               TRUE
 #define TX_RANDOM_MAP_BASED             TRUE
 #define TX_RANDOM_INCLUDE_LEGENDARIES   FALSE
@@ -19,7 +31,7 @@
 #define TX_RANDOM_ITEMS                 FALSE
 #define TX_RANDOM_CHAOS_MODE            FALSE
 
-#define TX_NUZLOCKE_NUZLOCKE 0
+#define TX_NUZLOCKE_NUZLOCKE 1
 #define TX_NUZLOCKE_NUZLOCKE_HARDCORE 0 //CAREFULL!!!!!
 #define TX_NUZLOCKE_SPECIES_CLAUSE 1
 #define TX_NUZLOCKE_SHINY_CLAUSE 1
@@ -27,10 +39,10 @@
 #define TX_NUZLOCKE_DELETION 0
 
 #define TX_DIFFICULTY_PARTY_LIMIT 0
-#define TX_DIFFICULTY_LEVEL_CAP 0
-#define TX_DIFFICULTY_EXP_MULTIPLIER 0
-#define TX_DIFFICULTY_NO_ITEM_PLAYER 0
-#define TX_DIFFICULTY_NO_ITEM_TRAINER 0
+#define TX_DIFFICULTY_LEVEL_CAP 1 //0 off, 1 normal, 2 hard
+#define TX_DIFFICULTY_EXP_MULTIPLIER 2 //0 x1.0, 1 x1.5, 2 x2.0, 3 x0.0
+#define TX_DIFFICULTY_NO_ITEM_PLAYER 1 //0 items yes, 1 items no
+#define TX_DIFFICULTY_NO_ITEM_TRAINER 1 //0 items yes, 1 items no
 #define TX_DIFFICULTY_NO_EVS 0
 #define TX_DIFFICULTY_SCALING_IVS 0
 #define TX_DIFFICULTY_SCALING_EVS 0
