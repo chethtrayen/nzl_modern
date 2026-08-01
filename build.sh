@@ -1,0 +1,1 @@
+wsl.exe -d Ubuntu bash -lc 'cd /mnt/c/Users/cheth/Documents/dev/nzl_modern && export DEVKITARM=$HOME/toolchains/gcc-arm-none-eabi-10.3-2021.10 && export PATH="$DEVKITARM/bin:$PATH" && make tidymodern && make modern -j8'

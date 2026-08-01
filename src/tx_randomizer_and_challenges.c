@@ -347,15 +347,15 @@ enum LevelCap {
 };
 static const u8 sLevelCapTable_Normal[] = 
 {
-    [LEVEL_CAP_NO_BADGES]   = 15,
-    [LEVEL_CAP_BADGE_1]     = 19,
-    [LEVEL_CAP_BADGE_2]     = 24,
-    [LEVEL_CAP_BADGE_3]     = 29,
-    [LEVEL_CAP_BADGE_4]     = 31,
-    [LEVEL_CAP_BADGE_5]     = 33,
-    [LEVEL_CAP_BADGE_6]     = 42,
-    [LEVEL_CAP_BADGE_7]     = 46,
-    [LEVEL_CAP_BADGE_8]     = 58,
+    [LEVEL_CAP_NO_BADGES]   = 17,
+    [LEVEL_CAP_BADGE_1]     = 22,
+    [LEVEL_CAP_BADGE_2]     = 27,
+    [LEVEL_CAP_BADGE_3]     = 32,
+    [LEVEL_CAP_BADGE_4]     = 35,
+    [LEVEL_CAP_BADGE_5]     = 41,
+    [LEVEL_CAP_BADGE_6]     = 47,
+    [LEVEL_CAP_BADGE_7]     = 54,
+    [LEVEL_CAP_BADGE_8]     = 63,
 };
 static const u8 sLevelCapTable_Hard[] = 
 {
